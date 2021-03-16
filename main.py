@@ -4,6 +4,7 @@ import asyncio
 import json
 import requests
 import re
+import discord
 
 
 prefix = '.'
@@ -24,6 +25,8 @@ weather_words = ["weather", "hot", "cold"]
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+
+
 
 @client.command(name="help")
 async def help(ctx):
@@ -110,7 +113,10 @@ async def urban_(ctx, arg):
     meaning = re.sub(r"\[|\]", "", meaning)
     example = urban_def["list"][0]["example"]
     example = re.sub(r"\[|\]", "", example)
-    await ctx.send("Term: {0}\nTop definition: {1}\nExample: {2}".format(arg,meaning, example))
+    embedVar = discord.Embed(title=arg, color=0x00ff00)
+    embedVar.add_field(name="Top definition", value=meaning, inline=False)
+    embedVar.add_field(name="Examples:", value=example, inline=False)
+    await ctx.channel.send(embed=embedVar)
 
     
 client.run(os.getenv('TOKEN'))
