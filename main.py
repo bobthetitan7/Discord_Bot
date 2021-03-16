@@ -110,7 +110,7 @@ async def urban_(ctx, arg):
     meaning = re.sub(r"\[|\]", "", meaning)
     example = urban_def["list"][0]["example"]
     example = re.sub(r"\[|\]", "", example)
-    await ctx.send("Top definition: {0}\nExample: {1}".format(meaning, example))
+    await ctx.send("Term: {0}\nTop definition: {1}\nExample: {2}".format(arg,meaning, example))
 
     
 client.run(os.getenv('TOKEN'))
