@@ -1,5 +1,7 @@
-# Discord_Bot
+# Slap_Bot
 Beta V0.0
+
+Built for discord, Slap Bot is one of my fun personal project. 
 
 Current Features: 
 
